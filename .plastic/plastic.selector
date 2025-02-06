@@ -1,0 +1,4 @@
+repository "Card-Game-Template/Card-Game-Template@20067306256982@cloud"
+  path "/"
+    br "/main"
+    co "/main"
