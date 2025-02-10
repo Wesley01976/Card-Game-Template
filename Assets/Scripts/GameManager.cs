@@ -35,14 +35,26 @@ public class GameManager : MonoBehaviour
     {
         
     }
+    
 
     void Deal()
     {
-
+        int randomNumber = Random.Range(1, 4);
+        int playersHand = randomNumber;
+        Debug.Log("Random number: " + randomNumber);
     }
 
     void Shuffle()
-    {
+    { Shuffle();
+
+        for (int i = 0; i < 5; i++)
+        {
+            player_hand.Add(deck[0]);
+            deck.RemoveAt(0);
+
+            ai_hand.Add(deck[0]);
+            deck.RemoveAt(0);
+        }
 
     }
 
