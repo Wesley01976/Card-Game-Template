@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class GameManager : MonoBehaviour
@@ -27,43 +28,55 @@ public class GameManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
+        Deal();
     }
 
     // Update is called once per frame
     void Update()
     {
-        
+        if(Input.GetKeyDown(KeyCode.Space))
+        {
+            AI_Turn();
+        }
     }
     
+    int hand_size = 5;
+    int AI_hand_size = 5;
 
     void Deal()
     {
-        int randomNumber = Random.Range(1, 4);
-        int playersHand = randomNumber;
-        Debug.Log("Random number: " + randomNumber);
+        print("Dealing cards");
+
+        for (int i = 0; i < hand_size; i += 1)
+        {
+            int randomNumber = Random.Range(0, deck.Count);
+            player_hand.Add(deck[randomNumber]);
+            //print(i);
+        }
+        for (int i = 0; i < AI_hand_size; i += 1)
+        {
+            int randomNumber = Random.Range(0, deck.Count);
+            ai_hand.Add(deck[randomNumber]);
+            //print(i);
+        }
     }
 
     void Shuffle()
-    { Shuffle();
-
-        for (int i = 0; i < 5; i++)
-        {
-            player_hand.Add(deck[0]);
-            deck.RemoveAt(0);
-
-            ai_hand.Add(deck[0]);
-            deck.RemoveAt(0);
-        }
-
+    {
     }
 
     void AI_Turn()
     {
-
+      int randomNumber = Random.Range(0, ai_hand.Count);
+      print("FROM AI TURN: " + randomNumber);
+       ai_hand.Remove(ai_hand[randomNumber]);
+       Player_Turn();
+       int newRandomNumber = Random.Range(0, deck.Count);
+            ai_hand.Add(deck[newRandomNumber]);
     }
 
+void Player_Turn()
+{
 
-
-    
+}
 }
