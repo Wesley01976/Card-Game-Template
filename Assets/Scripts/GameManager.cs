@@ -12,6 +12,9 @@ public class GameManager : MonoBehaviour
     public List<Card> player_hand = new List<Card>();
     public List<Card> ai_hand = new List<Card>();
     public List<Card> discard_pile = new List<Card>();
+    public GameObject WaterCard;
+    public GameObject FireCard;
+    public GameObject PlantCard;
 
     private void Awake()
     {
@@ -73,6 +76,33 @@ public class GameManager : MonoBehaviour
        Player_Turn();
        int newRandomNumber = Random.Range(0, deck.Count);
             ai_hand.Add(deck[newRandomNumber]);
+    }
+    void InstantiatePlayerCards()
+    {
+        for (int i = 0; i < player_hand.Count; i++)
+        {
+            GameObject cardPrefab = GetCardPrefab(player_hand[i]);
+            if (cardPrefab != null)
+            {
+                GameObject card = Instantiate(cardPrefab, playerHandTransform);
+                card.transform.localPosition = new Vector3(i * 2.0f, 0, 0); // Position cards in a row
+            }
+        }
+    }
+
+    GameObject GetCardPrefab(Card card)
+    {
+        switch (card.type)
+        {
+            case CardType.Water:
+                return Water Card;
+            case CardType.Fire:
+                return Fire Card;
+            case CardType.Plant:
+                return Plant Card;
+            default:
+                return null;
+        }
     }
 
 void Player_Turn()

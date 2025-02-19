@@ -15,6 +15,6 @@ MonoBehaviour:
   card_name: Plant
   description: 
   health: 0
-  cost: 0
+  cost: 2
   damage: 0
   sprite: {fileID: 8591533231565066105, guid: 59d06369f6d864235ba7c166828e002a, type: 3}
