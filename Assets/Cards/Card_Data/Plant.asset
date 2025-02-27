@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Plant
   m_EditorClassIdentifier: 
   card_name: Plant
-  description: 
+  description: leaffffff
   health: 0
   cost: 2
   damage: 0

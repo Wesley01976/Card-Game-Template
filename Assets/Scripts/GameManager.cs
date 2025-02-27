@@ -1,10 +1,12 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.Android.Gradle;
 using Unity.VisualScripting;
 using UnityEngine;
 
 public class GameManager : MonoBehaviour
 {
+    public GameObject ai_card_deploy;
     public static GameManager gm;
     public List<Card> deck = new List<Card>();
     public List<Card> player_deck = new List<Card>();
@@ -12,9 +14,12 @@ public class GameManager : MonoBehaviour
     public List<Card> player_hand = new List<Card>();
     public List<Card> ai_hand = new List<Card>();
     public List<Card> discard_pile = new List<Card>();
+    public List<Card> PlayerCard = new List<Card>();
+    public List<Card> AiCard = new List<Card>();
     public GameObject WaterCard;
     public GameObject FireCard;
     public GameObject PlantCard;
+
 
     private void Awake()
     {
@@ -70,43 +75,25 @@ public class GameManager : MonoBehaviour
 
     void AI_Turn()
     {
+    AiCard.Remove(AiCard[0]);
       int randomNumber = Random.Range(0, ai_hand.Count);
       print("FROM AI TURN: " + randomNumber);
-       ai_hand.Remove(ai_hand[randomNumber]);
+      ai_card_deploy.GetComponent<AiCard>().data = ai_hand[randomNumber].GetComponent<Card>().data;
+      AiCard.Add(ai_hand[randomNumber]);
+      ai_hand.Remove(ai_hand[randomNumber]);
        Player_Turn();
        int newRandomNumber = Random.Range(0, deck.Count);
             ai_hand.Add(deck[newRandomNumber]);
     }
-    void InstantiatePlayerCards()
+
+    public void Player_Turn()
     {
-        for (int i = 0; i < player_hand.Count; i++)
-        {
-            GameObject cardPrefab = GetCardPrefab(player_hand[i]);
-            if (cardPrefab != null)
-            {
-                GameObject card = Instantiate(cardPrefab, playerHandTransform);
-                card.transform.localPosition = new Vector3(i * 2.0f, 0, 0); // Position cards in a row
-            }
-        }
+        print("Player Turn");
     }
 
-    GameObject GetCardPrefab(Card card)
+    public void click(GameObject card, int index)
     {
-        switch (card.type)
-        {
-            case CardType.Water:
-                return Water Card;
-            case CardType.Fire:
-                return Fire Card;
-            case CardType.Plant:
-                return Plant Card;
-            default:
-                return null;
-        }
+        //PlayerCard = card.GetComponent<Card>().data;
+        //player_hand[index].Remove;
     }
-
-void Player_Turn()
-{
-
-}
 }

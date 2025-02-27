@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Fire
   m_EditorClassIdentifier: 
   card_name: Fire
-  description: 
+  description: fireballlllll
   health: 0
   cost: 1
   damage: 0

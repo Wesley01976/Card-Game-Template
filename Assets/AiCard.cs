@@ -1,36 +1,25 @@
-using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
-using TMPro;
 using UnityEngine.UI;
+using UnityEngine;
 
-public class Card : MonoBehaviour
+public class AiCard : MonoBehaviour
 {
     public Card_data data;
-
     public string card_name;
     public int health;
     public int cost;
     public int damage;
     public Sprite sprite;
     public Image spriteImage;
-        
-
-    // Start is called before the first frame update
-    void Start()
+    //public Image spriteImage;
+    
+    // Start is called once before the first execution of Update after the MonoBehaviour is created
+    void Update()
     {
         LoadData();
-        
-
     }
 
     // Update is called once per frame
-    void Update()
-    {
-        
-    }
-
-    public void LoadData() 
+    public void LoadData()
     {
         cost = data.cost;
         sprite = data.sprite;
