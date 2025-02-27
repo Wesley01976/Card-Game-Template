@@ -4,25 +4,36 @@ using UnityEngine;
 public class AiCard : MonoBehaviour
 {
     public Card_data data;
+    private Card_data previousData; // To track data changes
     public string card_name;
     public int health;
     public int cost;
     public int damage;
     public Sprite sprite;
     public Image spriteImage;
-    //public Image spriteImage;
     
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Update()
     {
-        LoadData();
+        // Only reload if data has changed
+        if (data != previousData)
+        {
+            LoadData();
+            previousData = data;
+        }
     }
 
-    // Update is called once per frame
     public void LoadData()
     {
-        cost = data.cost;
-        sprite = data.sprite;
-        spriteImage.sprite = sprite;
+        
+            card_name = data.card_name;
+            health = data.health;
+            cost = data.cost;
+            damage = data.damage;
+            sprite = data.sprite;
+            
+            
+                spriteImage.sprite = sprite;
+            
+        
     }
 }

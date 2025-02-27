@@ -75,15 +75,26 @@ public class GameManager : MonoBehaviour
 
     void AI_Turn()
     {
-    AiCard.Remove(AiCard[0]);
-      int randomNumber = Random.Range(0, ai_hand.Count);
-      print("FROM AI TURN: " + randomNumber);
-      ai_card_deploy.GetComponent<AiCard>().data = ai_hand[randomNumber].GetComponent<Card>().data;
-      AiCard.Add(ai_hand[randomNumber]);
-      ai_hand.Remove(ai_hand[randomNumber]);
-       Player_Turn();
-       int newRandomNumber = Random.Range(0, deck.Count);
-            ai_hand.Add(deck[newRandomNumber]);
+        // Remove previous card if exists
+        if (AiCard.Count > 0)
+        {
+            AiCard.RemoveAt(0);
+        }
+
+        int randomNumber = Random.Range(0, ai_hand.Count);
+        print("FROM AI TURN: " + randomNumber);
+        
+        // Set the data and explicitly load it
+        ai_card_deploy.GetComponent<AiCard>().data = ai_hand[randomNumber].GetComponent<Card>().data;
+        ai_card_deploy.GetComponent<AiCard>().LoadData();
+        
+        AiCard.Add(ai_hand[randomNumber]);
+        ai_hand.Remove(ai_hand[randomNumber]);
+        Player_Turn();
+        
+        // Draw new card
+        int newRandomNumber = Random.Range(0, deck.Count);
+        ai_hand.Add(deck[newRandomNumber]);
     }
 
     public void Player_Turn()

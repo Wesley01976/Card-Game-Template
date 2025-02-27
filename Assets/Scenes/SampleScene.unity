@@ -801,17 +801,6 @@ MonoBehaviour:
   damage: 0
   sprite: {fileID: 0}
   spriteImage: {fileID: 1888164002}
---- !u!114 &319248482 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 8706265603331512291, guid: 1bc92bf6a8c9f498e9da040087d09419, type: 3}
-  m_PrefabInstance: {fileID: 1488162446}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &345383895 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 8706265603331512291, guid: 1bc92bf6a8c9f498e9da040087d09419, type: 3}
@@ -2511,9 +2500,6 @@ PrefabInstance:
     m_AddedComponents:
     - targetCorrespondingSourceObject: {fileID: 139944937306382617, guid: 1bc92bf6a8c9f498e9da040087d09419, type: 3}
       insertIndex: -1
-      addedObject: {fileID: 1710413461}
-    - targetCorrespondingSourceObject: {fileID: 139944937306382617, guid: 1bc92bf6a8c9f498e9da040087d09419, type: 3}
-      insertIndex: -1
       addedObject: {fileID: 1710413462}
     - targetCorrespondingSourceObject: {fileID: 139944937306382617, guid: 1bc92bf6a8c9f498e9da040087d09419, type: 3}
       insertIndex: -1
@@ -2569,25 +2555,6 @@ RectTransform:
   m_CorrespondingSourceObject: {fileID: 970200069765969068, guid: 1bc92bf6a8c9f498e9da040087d09419, type: 3}
   m_PrefabInstance: {fileID: 1488162446}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &1710413461
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1710413459}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0fa534983bed543169ce438dfad802a6, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  data: {fileID: 0}
-  card_name: 
-  health: 0
-  cost: 0
-  damage: 0
-  sprite: {fileID: 0}
-  spriteImage: {fileID: 319248482}
 --- !u!114 &1710413462
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2595,7 +2562,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1710413459}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: f96331ad7e80d44c297a40cd079bbeda, type: 3}
   m_Name: 
