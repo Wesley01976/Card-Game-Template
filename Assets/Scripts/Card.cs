@@ -32,8 +32,17 @@ public class Card : MonoBehaviour
 
     public void LoadData() 
     {
-        cost = data.cost;
-        sprite = data.sprite;
-        spriteImage.sprite = sprite;
+        if (data != null)  // Add null check
+        {
+            card_name = data.card_name;
+            health = data.health;
+            cost = data.cost;
+            damage = data.damage;
+            sprite = data.sprite;
+            if (spriteImage != null)  // Add null check
+            {
+                spriteImage.sprite = sprite;
+            }
+        }
     }
 }

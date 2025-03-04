@@ -15,16 +15,16 @@ public class DeckBehaviour : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-            for (int i = 0; i < deck.Length; i++)
-            {
-                deck[i] = gm.player_hand[i];
-                cards[i].GetComponent<Card>().data = deck[i].data;
-                cards[i].GetComponent<Card>().LoadData();
-            }
-            if(Input.GetKeyDown(KeyCode.Space))
+        for (int i = 0; i < deck.Length; i++)
         {
-            //aiCard.GetComponent<AiCard>().data = gm.AiCard[0].data;
-            //aiCard.GetComponent<AiCard>().LoadData();
+            deck[i] = gm.player_hand[i];
+            cards[i].GetComponent<Card>().data = deck[i].data;
+            cards[i].GetComponent<Card>().LoadData();
+        }
+        if(Input.GetKeyDown(KeyCode.Space))
+        {
+            aiCard.GetComponent<AiCard>().data = gm.AiCard[0].data;
+            aiCard.GetComponent<AiCard>().LoadData();
         }
             
     }

@@ -3,13 +3,14 @@ using UnityEngine;
 
 public class AiCard : MonoBehaviour
 {
+    
     public Card_data data;
     private Card_data previousData; // To track data changes
     public string card_name;
     public int health;
     public int cost;
     public int damage;
-    public Sprite sprite;
+    public SpriteRenderer sprite;
     public Image spriteImage;
     
     void Update()
@@ -29,10 +30,10 @@ public class AiCard : MonoBehaviour
             health = data.health;
             cost = data.cost;
             damage = data.damage;
-            sprite = data.sprite;
+            sprite.sprite = data.sprite;
             
             
-                spriteImage.sprite = sprite;
+                spriteImage.sprite = data.sprite;
             
         
     }
